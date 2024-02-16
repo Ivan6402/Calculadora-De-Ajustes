@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  font-family:helvetica;
+  font-size: 20px;
+}
+h1 {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+  background-color:#ffda9e;
+}
+
+.separador {
+  padding: 10px;
+  margin: auto;
+}
+
+#separadorPlantilla{
+  display: flex;
+}
+
+textarea {
+  margin: auto;
+}
+

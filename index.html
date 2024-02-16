@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculadora de ajustes</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="all">
+  </head>
+  <body>
+    <h1>Calculadora de ajustes</h1>
+    <form id='formulario' action="index.html" method="post" accept-charset="utf-8"> 
+      
+      <div class="separador">
+        <label for="importe">Importe:</label>
+        <input type="text" name="importe" id="importe" value=""><br/>
+      </div>
+
+      <div class="separador">
+        Motivo:
+        <input type="radio" name="motivo" id="dias" value="Dias sin servicio"/>
+        <label for="dias">Dias sin servicio</label>
+        <input type="radio" name="motivo" id="masivo" value="Masivo"/>
+        <label for="masivo">Masivo</label>
+      </div>
+
+      <div class="separador">
+        Servicios Afectados:
+        <input type="radio" name="servicio" id="flow" value="Flow"/>
+        <label for="flow">Flow</label>
+        <input type="radio" name="servicio" id="internet" value="Internet"/>
+        <label for="internet">Internet</label>
+        <input type="radio" name="servicio" id="combo" value="Combo"/>
+        <label for="combo">Ambos</label>
+      </div>
+
+      <div class="separador">
+        <label for="fecha">Desde:</label>
+        <input type="date" name="fechaDesde" id="fechaDesde" >
+        <label for="fecha">Hasta:</label>
+        <input type="date" name="fechaHasta" id="fechaHasta" ><br/>
+      </div>
+
+      <div class="separador">
+        <input type="submit" value="Calcular ajuste" />
+      </div>
+
+    </form>
+    <div id="separadorPlantilla">
+      <textarea name="miPlanilla" id="miPlanilla" cols="50" rows="10"></textarea>
+    </div>
+    <script src="script.js" charset="utf-8"></script>
+  </body>
+</html>
