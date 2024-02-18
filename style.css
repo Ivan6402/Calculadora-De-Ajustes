@@ -6,27 +6,38 @@
 
 body{
   font-family:helvetica;
-  font-size: 20px;
 }
+
 h1 {
   text-align: center;
 }
 
 form {
+  font-size: 24px;
   text-align: center;
-  background-color:#ffda9e;
+  background-color:#84b6f4;
 }
 
 .separador {
   padding: 10px;
-  margin: auto;
 }
 
-#separadorPlantilla{
+.separador input{
+  font-size: 20px;
+}
+
+#separadorPlanilla{
   display: flex;
 }
 
 textarea {
   margin: auto;
+  font-size: 24px;
 }
 
+.boton {
+  padding: 8px;
+  border-radius: 10px; /* add this line */
+  cursor: pointer; /* add this line */
+  background-color: #fff;
+}

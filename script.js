@@ -1,36 +1,42 @@
-let form = document.getElementById('formulario');
-let fechaDesde = document.getElementById('fechaDesde');
-let fechaHasta = document.getElementById('fechaHasta');
+let planilla = document.getElementById('planilla');
 
-form.addEventListener('submit', (e) => {
+formulario.addEventListener('submit', (e) => {
   e.preventDefault();
+  resetearCopiado();
 
   let resultado = new FormData(formulario);
-  let miPlanilla = document.getElementById('miPlanilla');
-  let diaDesde = String(fechaDesde.value).substring(8, 10);
-  let diaHasta = String(fechaHasta.value).substring(8, 10); 
-  let diasAjustados = diaHasta - diaDesde + 1;
-  let mes = String(fechaHasta.value).substring(5, 7);
-  let anio = String(fechaHasta.value).substring(0, 4);
+  let diaDesde = String(resultado.get('fechaDesde')).substring(8, 10);
+  let diaHasta = String(resultado.get('fechaHasta')).substring(8, 10); 
+  let mes = String(resultado.get('fechaHasta')).substring(5, 7);
+  let anio = String(resultado.get('fechaHasta')).substring(0, 4);
   let division = ultimaDiaDelAnio(anio, mes);
-  let ajuste = calcularAjuste(diasAjustados, division, resultado.get('importe'));
+  let diasDeAjuste = diaHasta - diaDesde + 1;
+  let ajuste = calcularAjuste(diasDeAjuste, division, resultado.get('importe'));
 
-  console.log('division: ', division);
-  console.log('ajuste: ', ajuste);
-  
-  miPlanilla.value = `N° de Ft:
+  planilla.value = `N° de Ft:
 Importe: ${resultado.get('importe')}
 Motivo: ${resultado.get('motivo')}
 Serv. afectado:${resultado.get('servicio')}
-Cant. de días descontados:${diasAjustados}
+Cant. de días descontados:${diasDeAjuste}
 Plazo de días ajustados (desde-hasta):${diaDesde}/${mes} hasta ${diaHasta}/${mes}
 Total del ajuste:${ajuste}
 `
 });
 
+copiar.addEventListener('click', () => {
+  navigator.clipboard.writeText(planilla.value);
+  copiar.value = 'Copiado!';
+  copiar.style['background-color'] = '#ff6961';
+});
+
+function resetearCopiado(){
+  copiar.value = 'Copiar';
+  copiar.style['background-color'] = '#fff';
+}
+
 function calcularAjuste(dias, division, importe){
   importe = importe.split(".").join("").replace(/,/, '.');
-  let resultado = ((importe/division) * dias);
+  let resultado = ((importe/division) * dias) / 1.21;
   return resultado.toFixed(2);
 }
 
@@ -38,3 +44,4 @@ function ultimaDiaDelAnio(anio, mes) {
   let fechaActual = new Date(anio, mes, 0);
   return fechaActual.getDate();
 }
+
