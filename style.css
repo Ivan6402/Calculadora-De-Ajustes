@@ -55,9 +55,10 @@ input{
 textarea {
   padding: 5px;
   font-size: 15px;
-  border:none;
   font-family:helvetica;
   background-color: #DBCBBD;
+  border: 2px solid #DBCBBD;
+  border-radius: 6px;
 }
 
 .boton {
@@ -72,4 +73,10 @@ textarea {
 
 .boton:hover{
   opacity:0.75;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  color: #fff;
 }
