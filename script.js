@@ -26,12 +26,12 @@ Total del ajuste:${ajuste}
 copiar.addEventListener('click', () => {
   navigator.clipboard.writeText(planilla.value);
   copiar.value = 'Copiado!';
-  copiar.style['background-color'] = '#ff6961';
+  copiar.style['background-color'] = '#800000';
 });
 
 function resetearCopiado(){
   copiar.value = 'Copiar';
-  copiar.style['background-color'] = '#fff';
+  copiar.style['background-color'] = '#290001';
 }
 
 function calcularAjuste(dias, division, importe){

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculadora de ajustes</title>
+    <link rel="stylesheet" href="Calculadora%20de%20ajustes_archivos/style.css" type="text/css" media="all">
+  </head>
+  <body>
+    <h1>Calculadora de ajustes</h1>
+    <form id="formulario" action="index.html" method="post" accept-charset="utf-8"> 
+      
+      <div class="separador">
+        <label for="importe">Importe:</label>
+        <input type="text" name="importe" id="importe" placeholder="ingrese monto, ej 9999,9"><br>
+      </div>
+
+      <div class="separador">
+        Motivo:
+        <input type="radio" name="motivo" id="dias" value="Dias sin servicio" checked="checked">
+        <label for="dias">Dias sin servicio</label>
+        <input type="radio" name="motivo" id="masivo" value="Masivo">
+        <label for="masivo">Masivo</label>
+      </div>
+
+      <div class="separador">
+        Servicios Afectados:
+        <input type="radio" name="servicio" id="flow" value="Flow">
+        <label for="flow">Flow</label>
+        <input type="radio" name="servicio" id="internet" value="Internet">
+        <label for="internet">Internet</label>
+        <input type="radio" name="servicio" id="combo" value="Combo" checked="checked">
+        <label for="combo">Combo</label>
+      </div>
+
+      <div class="separador">
+        <label for="fecha">Desde:</label>
+        <input type="date" name="fechaDesde" id="fechaDesde" value="2024-02-05">
+        <label for="fecha">Hasta:</label>
+        <input type="date" name="fechaHasta" id="fechaHasta" value="2024-02-15"><br>
+      </div>
+
+      <div class="separador">
+        <input type="submit" value="Calcular Ajuste" class="boton">
+      </div>
+
+      <div class="separador">
+        <textarea name="planilla" id="planilla" cols="50" rows="10">N° de Ft:
+Importe: 
+Motivo: Dias sin servicio
+Serv. afectado:Combo
+Cant. de días descontados:11
+Plazo de días ajustados (desde-hasta):05/02 hasta 15/02
+Total del ajuste:0.00
+</textarea>
+      </div>
+      <div class="separador">
+        <input type="button" value="Copiar" class="boton" id="copiar" style="background-color: rgb(191, 201, 202);">
+      </div>
+    </form>
+
+    <script src="Calculadora%20de%20ajustes_archivos/script.js" charset="utf-8"></script>
+  
+
+</body></html>
