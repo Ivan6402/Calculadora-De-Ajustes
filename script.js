@@ -1,26 +1,36 @@
 let planilla = document.getElementById('planilla');
+let warning  = document.getElementById('warning');
 
 formulario.addEventListener('submit', (e) => {
   e.preventDefault();
-  resetearCopiado();
+  resetearFormulario();
 
-  let resultado = new FormData(formulario);
-  let diaDesde = String(resultado.get('fechaDesde')).substring(8, 10);
-  let diaHasta = String(resultado.get('fechaHasta')).substring(8, 10); 
-  let mes = String(resultado.get('fechaHasta')).substring(5, 7);
-  let anio = String(resultado.get('fechaHasta')).substring(0, 4);
-  let division = ultimaDiaDelAnio(anio, mes);
-  let diasDeAjuste = diaHasta - diaDesde + 1;
-  let ajuste = calcularAjuste(diasDeAjuste, division, resultado.get('importe'));
+  let datos = new FormData(formulario);
+  let importe = datos.get('importe');
+  let motivo  = datos.get('motivo');
+  let servicio = datos.get('servicio')
+  let diaDesde = String(datos.get('fechaDesde')).substring(8, 10);
+  let diaHasta = String(datos.get('fechaHasta')).substring(8, 10); 
+  let mes = String(datos.get('fechaHasta')).substring(5, 7);
+  let anio = String(datos.get('fechaHasta')).substring(0, 4);
 
-  planilla.value = `N° de Ft:
-Importe: ${resultado.get('importe')}
-Motivo: ${resultado.get('motivo')}
-Serv. afectado:${resultado.get('servicio')}
+  let validacion = validarFormulario(importe,motivo,servicio,diaDesde,diaHasta); 
+
+  if (validacion) {
+    let division = ultimaDiaDelAnio(anio, mes);
+    let diasDeAjuste = diaHasta - diaDesde + 1;
+    let ajuste = calcularAjuste(diasDeAjuste, division, importe);
+
+    planilla.value = `N° de Ft:
+Importe: ${importe}
+Motivo: ${motivo}
+Serv. afectado:${servicio}
 Cant. de días descontados:${diasDeAjuste}
 Plazo de días ajustados (desde-hasta):${diaDesde}/${mes} hasta ${diaHasta}/${mes}
 Total del ajuste:${ajuste}
 `
+  }
+
 });
 
 copiar.addEventListener('click', () => {
@@ -29,9 +39,26 @@ copiar.addEventListener('click', () => {
   copiar.style['background-color'] = '#800000';
 });
 
-function resetearCopiado(){
-  copiar.value = 'Copiar';
-  copiar.style['background-color'] = '#290001';
+function validarFormulario(importe, motivo, servicio,diaDesde, diaHasta){
+	let patron = /,\d{1,2}/
+  if (!patron.test(importe)) {
+    warning.innerHTML += "X Importe invalido, falta la coma decimal<br>";
+  }
+  if (diaDesde == '' || diaHasta == '') {
+    warning.innerHTML += "X Complete la fecha desde/hasta<br>";
+  }
+  if (!warning.innerHTML == "") {
+    return false; 
+  } else {
+    return true;
+  }
+}
+
+function resetearFormulario(){
+  copiar.value = 'Copiar Planilla';
+  copiar.style['background-color'] = '#154360';
+  planilla.value = '';
+  warning.innerHTML = "";
 }
 
 function calcularAjuste(dias, division, importe){

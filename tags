@@ -9,39 +9,51 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	/80ee839/
-#separadorPlanilla	style.css	/^#separadorPlanilla{$/;"	i
+#importe	style.css	/^#importe{$/;"	i
 *	style.css	/^* {$/;"	s
 .boton	style.css	/^.boton {$/;"	c
+.boton:hover	style.css	/^.boton:hover{$/;"	c
+.informacion	style.css	/^.informacion {$/;"	c
 .separador	style.css	/^.separador {$/;"	c
 .separador input	style.css	/^.separador input{$/;"	s
-Calculadora de ajustes	index.html	/^    <h1>Calculadora de ajustes<\/h1>$/;"	h
+.warning	style.css	/^.warning {$/;"	c
+Calculadora de ajustes	index.html	/^        <h1>Calculadora de ajustes<\/h1>$/;"	h
 Calculadora de ajustes	index.html	/^    <title>Calculadora de ajustes<\/title>$/;"	j
 Calculadora-De-Ajustes	./README.md	/^# Calculadora-De-Ajustes/;"	c
-ajuste	script.js	/^  let ajuste = calcularAjuste(diasDeAjuste, division, resultado.get('importe'));$/;"	v
-anio	script.js	/^  let anio = String(resultado.get('fechaHasta')).substring(0, 4);$/;"	v
-body	style.css	/^body{$/;"	s
+ajuste	script.js	/^    let ajuste = calcularAjuste(diasDeAjuste, division, importe);$/;"	v
+anio	script.js	/^  let anio = String(datos.get('fechaHasta')).substring(0, 4);$/;"	v
+body	style.css	/^body {$/;"	s
 calcularAjuste	script.js	/^function calcularAjuste(dias, division, importe){$/;"	f
 combo	index.html	/^        <input type="radio" name="servicio" id="combo" value="Combo"\/>$/;"	I
-copiar	index.html	/^      <input type="button" value="Copiar" class="boton" id="copiar"\/>$/;"	I
-diaDesde	script.js	/^  let diaDesde = String(resultado.get('fechaDesde')).substring(8, 10);$/;"	v
-diaHasta	script.js	/^  let diaHasta = String(resultado.get('fechaHasta')).substring(8, 10); $/;"	v
-dias	index.html	/^        <input type="radio" name="motivo" id="dias" value="Dias sin servicio"\/>$/;"	I
-diasDeAjuste	script.js	/^  let diasDeAjuste = diaHasta - diaDesde + 1;$/;"	v
-division	script.js	/^  let division = ultimaDiaDelAnio(anio, mes);$/;"	v
-fechaDesde	index.html	/^        <input type="date" name="fechaDesde" id="fechaDesde" >$/;"	I
-fechaHasta	index.html	/^        <input type="date" name="fechaHasta" id="fechaHasta" ><br\/>$/;"	I
-flow	index.html	/^        <input type="radio" name="servicio" id="flow" value="Flow"\/>$/;"	I
+copiar	index.html	/^        <input type="button" value="Copiar Planilla" class="boton" id="copiar"\/>$/;"	I
+datos	script.js	/^  let datos = new FormData(formulario);$/;"	v
+diaDesde	script.js	/^  let diaDesde = String(datos.get('fechaDesde')).substring(8, 10);$/;"	v
+diaHasta	script.js	/^  let diaHasta = String(datos.get('fechaHasta')).substring(8, 10); $/;"	v
+dias	index.html	/^        <input type="radio" name="motivo" id="dias" value="Dias sin servicio"$/;"	I
+diasDeAjuste	script.js	/^    let diasDeAjuste = diaHasta - diaDesde + 1;$/;"	v
+division	script.js	/^    let division = ultimaDiaDelAnio(anio, mes);$/;"	v
+fechaDesde	index.html	/^        <input type="date" name="fechaDesde" id="fechaDesde">$/;"	I
+fechaHasta	index.html	/^        <input type="date" name="fechaHasta" id="fechaHasta"><br\/>$/;"	I
+flow	index.html	/^        <input type="radio" name="servicio" id="flow" value="Flow" checked\/>$/;"	I
+footer	style.css	/^footer {$/;"	s
 form	style.css	/^form {$/;"	s
-formulario	index.html	/^    <form id='formulario' action="index.html" method="post" accept-charset="utf-8"> $/;"	I
+formulario	index.html	/^    <form id='formulario' action="index.html" method="post" accept-charset="utf-8">$/;"	I
 h1	style.css	/^h1 {$/;"	s
-importe	index.html	/^        <input type="text" name="importe" id="importe" value=""><br\/>$/;"	I
+importe	index.html	/^        <input type="text" name="importe" id="importe" value=""$/;"	I
+importe	script.js	/^  let importe = datos.get('importe');$/;"	v
+input	style.css	/^input{$/;"	s
 internet	index.html	/^        <input type="radio" name="servicio" id="internet" value="Internet"\/>$/;"	I
+label	style.css	/^label {$/;"	s
 masivo	index.html	/^        <input type="radio" name="motivo" id="masivo" value="Masivo"\/>$/;"	I
-mes	script.js	/^  let mes = String(resultado.get('fechaHasta')).substring(5, 7);$/;"	v
-planilla	index.html	/^      <textarea name="planilla" id="planilla" cols="50" rows="10"><\/textarea>$/;"	I
+mes	script.js	/^  let mes = String(datos.get('fechaHasta')).substring(5, 7);$/;"	v
+motivo	script.js	/^  let motivo  = datos.get('motivo');$/;"	v
+planilla	index.html	/^        <textarea name="planilla" id="planilla" cols="50" rows="8"><\/textarea>$/;"	I
 planilla	script.js	/^let planilla = document.getElementById('planilla');$/;"	v
-resetearCopiado	script.js	/^function resetearCopiado(){$/;"	f
-resultado	script.js	/^  let resultado = new FormData(formulario);$/;"	v
-separadorPlanilla	index.html	/^    <div id="separadorPlanilla">$/;"	I
+resetearFormulario	script.js	/^function resetearFormulario(){$/;"	f
+servicio	script.js	/^  let servicio = datos.get('servicio')$/;"	v
 textarea	style.css	/^textarea {$/;"	s
 ultimaDiaDelAnio	script.js	/^function ultimaDiaDelAnio(anio, mes) {$/;"	f
+validacion	script.js	/^  let validacion = validarFormulario(importe,motivo,servicio,diaDesde,diaHasta); $/;"	v
+validarFormulario	script.js	/^function validarFormulario(importe, motivo, servicio,diaDesde, diaHasta){$/;"	f
+warning	index.html	/^        <p class="warning" id="warning"><\/p>$/;"	I
+warning	script.js	/^let warning  = document.getElementById('warning');$/;"	v
