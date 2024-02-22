@@ -42,10 +42,10 @@ copiar.addEventListener('click', () => {
 function validarFormulario(importe, motivo, servicio,diaDesde, diaHasta){
 	let patron = /,\d{1,2}/
   if (!patron.test(importe)) {
-    warning.innerHTML += "X Importe invalido, falta la coma decimal<br>";
+    warning.innerHTML += "( ͠° ͜ʖ ͡°) Importe invalido, falta la coma decimal<br>";
   }
   if (diaDesde == '' || diaHasta == '') {
-    warning.innerHTML += "X Complete la fecha desde/hasta<br>";
+    warning.innerHTML += "( ͠° ͜ʖ ͡°) Complete la fecha desde/hasta<br>";
   }
   if (!warning.innerHTML == "") {
     return false; 
@@ -59,11 +59,14 @@ function resetearFormulario(){
   copiar.style['background-color'] = '#154360';
   planilla.value = '';
   warning.innerHTML = "";
+  iva.innerHTML = "";
 }
 
 function calcularAjuste(dias, division, importe){
   importe = importe.split(".").join("").replace(/,/, '.');
   let resultado = ((importe/division) * dias) / 1.21;
+  let resultadoSinIva = ((importe/division) * dias);
+  iva.innerHTML += "( ͡~ ͜ʖ͡° ) valor con iva: " + resultadoSinIva.toFixed(2);
   return resultado.toFixed(2);
 }
 

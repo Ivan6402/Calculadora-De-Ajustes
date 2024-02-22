@@ -88,8 +88,14 @@ textarea {
   width: 200;
   text-align: center;
   margin: auto;
-  color:  #ff0000;
-  background-color: #fff;
+  background: #fff;
+  color: red;
+}
+
+.iva {
+  width: 200;
+  text-align: center;
+  margin: auto;
 }
 
 

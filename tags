@@ -14,6 +14,7 @@
 .boton	style.css	/^.boton {$/;"	c
 .boton:hover	style.css	/^.boton:hover{$/;"	c
 .informacion	style.css	/^.informacion {$/;"	c
+.iva	style.css	/^.iva {$/;"	c
 .separador	style.css	/^.separador {$/;"	c
 .separador input	style.css	/^.separador input{$/;"	s
 .warning	style.css	/^.warning {$/;"	c
