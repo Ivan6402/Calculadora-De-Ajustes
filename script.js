@@ -42,10 +42,10 @@ copiar.addEventListener('click', () => {
 function validarFormulario(importe, motivo, servicio,diaDesde, diaHasta){
 	let patron = /,\d{1,2}/
   if (!patron.test(importe)) {
-    warning.innerHTML += "( ͠° ͜ʖ ͡°) Importe invalido, falta la coma decimal<br>";
+    warning.innerHTML += "[!] Importe invalido, falta la coma decimal<br>";
   }
   if (diaDesde == '' || diaHasta == '') {
-    warning.innerHTML += "( ͠° ͜ʖ ͡°) Complete la fecha desde/hasta<br>";
+    warning.innerHTML += "[!] Complete la fecha desde/hasta<br>";
   }
   if (!warning.innerHTML == "") {
     return false; 
@@ -65,8 +65,8 @@ function resetearFormulario(){
 function calcularAjuste(dias, division, importe){
   importe = importe.split(".").join("").replace(/,/, '.');
   let resultado = ((importe/division) * dias) / 1.21;
-  let resultadoSinIva = ((importe/division) * dias);
-  iva.innerHTML += "( ͡~ ͜ʖ͡° ) valor con iva: " + resultadoSinIva.toFixed(2);
+  let resultadoIva = ((importe/division) * dias);
+  iva.innerHTML += "valor con iva: " + resultadoIva.toFixed(2);
   return resultado.toFixed(2);
 }
 
