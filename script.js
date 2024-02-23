@@ -66,7 +66,7 @@ function calcularAjuste(dias, division, importe){
   importe = importe.split(".").join("").replace(/,/, '.');
   let resultado = ((importe/division) * dias) / 1.21;
   let resultadoIva = ((importe/division) * dias);
-  iva.innerHTML += "valor con iva: " + resultadoIva.toFixed(2);
+  iva.innerHTML += "Importe con iva: " + resultadoIva.toFixed(2);
   return resultado.toFixed(2);
 }
 
